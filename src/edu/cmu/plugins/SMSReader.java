@@ -1,4 +1,4 @@
-package net.practicaldeveloper.phonegap.plugins;
+package edu.cmu.plugins;
 
 import android.content.ContentResolver;
 import android.database.Cursor;

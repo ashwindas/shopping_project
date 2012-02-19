@@ -16,6 +16,7 @@
     <plugin name="Temperature" value="com.phonegap.TempListener"/>
     <plugin name="FileTransfer" value="com.phonegap.FileTransfer"/>
     <plugin name="Capture" value="com.phonegap.Capture"/>
-    <plugin name="SmsPlugin" value="net.practicaldeveloper.phonegap.plugins.SmsPlugin"/>
-	<plugin name="SMSReader" value="net.practicaldeveloper.phonegap.plugins.SMSReader"/>
+    <plugin name="SmsPlugin" value="edu.cmu.plugins.SmsPlugin"/>
+	<plugin name="SMSReader" value="edu.cmu.plugins.SMSReader"/>
+	<plugin name="PhoneListener" value="edu.cmu.plugins.PhoneListener"/>
 </plugins>

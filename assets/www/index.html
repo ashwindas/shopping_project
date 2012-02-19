@@ -28,10 +28,42 @@ THE SOFTWARE.
 	<script src="jquery.mobile/jquery.mobile-1.0.1.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="phonegap-1.4.1.js"></script>
 	<script type="text/javascript" charset="utf-8" src="index.js"></script>
+	<script type="text/javascript" charset="utf-8" src="apis/PhoneListener.js"></script>
 		<script type="text/javascript" charset="utf-8" src="apis/smsplugin.js"></script> 			
 	
-        <script type="text/javascript">              
+        <script type="text/javascript">   
+        function onPhoneStateChanged(phoneState) 
+        {
+            switch (phoneState) {
+                case "RINGING":
+                	alert('Phone is ringing.');
+                    break;
+                case "OFFHOOK":
+                	alert('Phone is off the hook.');
+                    break;
+                case "IDLE":
+                	alert('Phone has returned to the idle state.');
+                    break;
+                case "SMS_RECEIVED":
+                	alert('New SMS received');
+                    break;
+                default:
+                    // no default...
+            }
+        }
+
+        function onError(error) {
+            // do something...
+        }
+        
+        function onSuccess() {
+            // do something else...
+        }
+        
         function onDeviceReady () {
+        	
+        	PhoneListener.start(onPhoneStateChanged,onError);
+        	
 			$('#send').bind('click', function () {
 				alert('Phone: ' + $('#phone').val() + ' Message: ' + $('#message').val());
 				window.plugins.sms.send($('#phone').val(), 
@@ -45,6 +77,7 @@ THE SOFTWARE.
 				);
 			});    			        	
         }
+        
         document.addEventListener("deviceready", onDeviceReady, false);
         </script>        
          	<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0.1.min.css" />
